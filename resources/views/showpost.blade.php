@@ -221,7 +221,6 @@
                 <div class="middle-column">
                     <div class="card">
                         <div class="card-body">
-
                  @livewire('commentlivewire',['post' => $post])
                 </div>
                     </div>
