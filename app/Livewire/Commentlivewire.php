@@ -9,9 +9,19 @@ use GuzzleHttp\Promise\Create;
 class Commentlivewire extends Component
 {
     public $post;
+    public $postowner;
     public $users;
     public $comments;
     public $newbody="";
+    public function deletecomment($id)
+    {
+    $com=comment::find($id);
+    $com->active=0;
+    $com->save();
+    $this->comments = Comment::where('post_id',$this->post->id)->where('active','1')->orderByDesc('created_at')->get();
+
+    $this->mount($this->post);
+    }
     public function addcomment()
     {
      $com=comment::Create([
@@ -21,11 +31,13 @@ class Commentlivewire extends Component
         'active'=>1,
         ]);
         $this->newbody='';
+
      $this->mount($this->post);
     }
     public function mount( $post)
     {
       $this->post = $post;
+      $this->postowner=user::find($this->post->user_id);
       $this->comments = Comment::where('post_id',$post->id)->where('active','1')->orderByDesc('created_at')->get();
       $this->users=user::find($this->comments->pluck('user_id')->toArray());
 
