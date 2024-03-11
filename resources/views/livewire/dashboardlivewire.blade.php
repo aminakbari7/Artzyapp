@@ -14,9 +14,7 @@
           </div>
           <button class="btn btn-success" type="submit" style="margin-left: 150px;margin-top:10px">send</button>
     </form>
-
     @foreach ($posts as $post )
-
     <hr>
     <div class="card-body">
         <div class="media">
@@ -24,13 +22,16 @@
                 class="rounded-circle mr-3">
 
             <div class="media-body">
+
                 <h5>{{auth()->user()->name  }}</h5>
-                <p class="card-text text-justify">{{ $post->body }}</p>
+                <p class="card-text text-justify">{{ $post->body }}</p></a>
                 <div class="row no-gutters mb-3">
                     <a href="" data-lightbox="id"><img
                         src="{{asset('storage/images/'.$post->image)}}" alt=""
-                        class="img-fluid shadow-sm img-thumbnail"> </a>
-                </div>
+                        class="img-fluid shadow-sm img-thumbnail">
+                    </div>
+                <a href="{{URL('showpost',$post)}}">
+                show post</a>
 
 
             </div>
