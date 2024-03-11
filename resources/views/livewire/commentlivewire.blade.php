@@ -12,16 +12,21 @@
         <small class="text-muted">10 min</small>
     </div>
     @if($comments->count()>0)
-    @foreach ($comments as $comment )
     <hr>
-    <div class="media mb-3" style="margin-left: -10px">
-        <img src="{{ asset('assets/img/avatar-dhg.png')}}" alt="img" width="45px" height="45px" class="rounded-circle mr-2">
-        <div class="media-body">
-                <p class="card-text text-justify">Jacon Thornton: {{ $comment->body }}</p>
-
+    @foreach ($comments as $comment )
+    @foreach ($users as $user )
+    @if($user->id==$comment->user_id)
+    <hr>
+         <div class="media mb-3" style="margin-left: -10px">
+          <img src="{{ asset('assets/img/avatar-dhg.png')}}" alt="img" width="45px" height="45px" class="rounded-circle mr-2">
+          <div class="media-body">
+                <p class="card-text text-justify">{{ $user->name }}:{{ $comment->body }}</p>
+         </div>
         </div>
-    </div>
-    @endforeach
+        @break
+        @endif
+        @endforeach
+        @endforeach
     @endif
     <hr>
     <form class="form-inline" wire:submit="addcomment()">
