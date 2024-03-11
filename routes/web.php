@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\postController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Livewire\Dashboardlivewire;
@@ -27,6 +28,6 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::get('dashboardlivewire',Dashboardlivewire::class );
-    Route::get('/showpost',function () {return view('showpost');} )->name('showpost');
+    Route::get('/showpost/{post}',[postController::class,'show'] )->name('showpost');
 });
 require __DIR__.'/auth.php';
