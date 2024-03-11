@@ -139,7 +139,6 @@
                                 <div class="media-body text-dark">
                                     <h6 class="media-header">Mark Otto and <strong> 3 others</strong></h6>
                                     <p class="media-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-
                                 </div>
                             </li>
                         </a>
@@ -161,15 +160,11 @@
             </div>
         </div>
     </div>
-
-
-
     <div class="container">
         <div class="row">
             <div class="col-12 col-lg-3">
                 <div class="left-column">
                     <div class="card shadow-sm mb-4">
-
                         <div class="card-body">
 
                             <h6 class="card-title ">Likes <a href="#" class="ml-1"><small>.View All</small>
@@ -227,21 +222,17 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="media">
-                                <img src="{{ asset('assets/img/avatar-mdo.png') }}" alt="img" width="55px" height="55px"
+                                <img src="{{asset('storage/images/'.$post->image)}}" alt="img" width="55px" height="55px"
                                     class="rounded-circle mr-3">
                                 <div class="media-body">
                                     <h5>Mark Otto</h5>
-                                    <p class="text-justify">Donec ullamcorper nulla non metus auctor fringilla.
-                                        Vestibulum id ligula porta felis euismod semper. Aenean eu leo quam.
-                                        Pellentesque ornare sem lacinia quam venenatis vestibulum. Etiam porta sem
-                                        malesuada magna mollis euismod. Donec sed odio dui.</p>
-                                    <a href="{{ asset('assets/img/mid5.jpg') }}" data-lightbox="id"><img
-                                            src="{{ asset('assets/img/mid5.jpg') }}" alt=""
+                                    <p class="text-justify">{{ $post->body }}</p>
+                                    <a href="{{asset('storage/images/'.$post->image)}}" data-lightbox="id"><img
+                                            src="{{asset('storage/images/'.$post->image)}}" alt=""
                                             class="img-fluid shadow-sm img-thumbnail"> </a>
                                 </div>
                                 <small class="text-muted">10 min</small>
                             </div>
-
                         <hr>
                         <div class="media mb-3" style="margin-left: -10px">
                             <img src="{{ asset('assets/img/avatar-dhg.png')}}" alt="img" width="45px" height="45px" class="rounded-circle mr-2">
