@@ -6,19 +6,19 @@ use Livewire\Component;
 use App\Models\User;
 use App\Models\comment;
 use GuzzleHttp\Promise\Create;
-
 class Commentlivewire extends Component
 {
     public $post;
+    public $users;
     public $comments;
-    public $newbody=0;
-
+    public $newbody="";
     public function addcomment()
     {
-     comment::Create([
+     $com=comment::Create([
         'body'=>$this->newbody,
-        'user_id'=>auth('')->user()->id,
         'post_id'=>$this->post->id,
+        'user_id'=>auth()->user()->id,
+        'active'=>1,
         ]);
         $this->newbody='';
      $this->mount($this->post);
@@ -26,7 +26,9 @@ class Commentlivewire extends Component
     public function mount( $post)
     {
       $this->post = $post;
-      $this->comments = Comment::where('post_id',$post->id)->get();
+      $this->comments = Comment::where('post_id',$post->id)->where('active','1')->orderByDesc('created_at')->get();
+      $this->users=user::find($this->comments->pluck('user_id')->toArray());
+
     }
     public function render()
     {
