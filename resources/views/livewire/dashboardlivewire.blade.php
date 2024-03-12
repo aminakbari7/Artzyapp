@@ -23,7 +23,10 @@
             <div class="media-body">
                 <h5>{{auth()->user()->name  }}</h5>
                 <a href="{{URL('showpost',$post)}}">
-                <p class="card-text text-justify">{{ $post->body }}</p>
+                <p class="card-text text-justify">
+                    {!! nl2br(e( $post->body )) !!}
+
+                </p>
                 <div class="row no-gutters mb-3">
                     @if($post->image!=0)
                     <img src="{{asset('storage/images/'.$post->image)}}" alt=""
@@ -32,7 +35,7 @@
                 </div>
                       </a>
             </div>
-            <small>5min</small>
+            <small>{{ \Carbon\Carbon::parse($post->created_at)->format('d/m/Y H:i:s')}}</small>
         </div>
     </div>
     @endforeach
