@@ -18,7 +18,7 @@
     <hr>
     <div class="card-body">
         <div class="media">
-            <img src="{{ asset('assets/img/avatar-dhg.png') }}" alt="img" width="55px" height="55px"
+            <img src="{{asset('storage/images/'.auth()->user()->avatar)}}" alt="img" width="55px" height="55px"
                 class="rounded-circle mr-3">
             <div class="media-body">
                 <h5>{{auth()->user()->name  }}</h5>
