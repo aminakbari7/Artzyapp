@@ -9,8 +9,6 @@ class dashboardController extends Controller
     /**
      * Display a listing of the resource.
      */
-
-
     public function dashboard()
     {
         if(auth()->user()->role=="admin")
@@ -18,7 +16,6 @@ class dashboardController extends Controller
         if(auth()->user()->role=="0")
         return redirect('userdash');
     }
-
     /**
      * Show the form for creating a new resource.
      */
