@@ -44,10 +44,8 @@ class Dashboardlivewire extends Component
         $this->render();
 
     }
-
     public function render()
     {
-
         $this->posts=post::select()->where('user_id', auth()->user()->id)->where('active','1')->orderByDesc('created_at')->get();
         return view('livewire.dashboardlivewire');
     }
