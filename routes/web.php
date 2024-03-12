@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\adminController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\postController;
 use App\Livewire\Commentlivewire;
@@ -34,5 +35,12 @@ Route::middleware('auth')->group(function () {
     Route::get('commentlivewire',Commentlivewire::class );
     Route::get('avatarchange',Avatarchange::class );
 });
+
+Route::middleware(['auth','isadmin', 'verified'])->group(function () {
+
+    Route::get('/admin.index', function () {return view('admin/index');})->name('admin.index');
+    Route::get('/showusers', [adminController::class,'showusers'])->name('showusers');
+});
+
 
 require __DIR__.'/auth.php';
