@@ -179,39 +179,14 @@
 
 
     <!-------------------------------------------Start Grids layout for lg-xl-3 columns and (xs-lg 1 columns)--------------------------------->
-
-
     <div class="container">
         <div class="row">
             <!--------------------------left columns  start-->
             <div class="col-12 col-lg-3">
                 <div class="left-column">
 
-                    <div class="card card-left1 mb-4">
-                        <img src="{{ asset('assets/img/photo-1455448972184-de647495d428.jpg') }}" alt=""
-                            class="card-img-top img-fluid">
-                        <div class="card-body text-center ">
-                            <img src="{{asset('storage/images/'.auth()->user()->avatar)}}" alt="img" width="120px" height="120px"
-                                class="rounded-circle mt-n5">
-                            <h5 class="card-title">{{ auth()->user()->name }}</h5>
-                            <p class="card-text text-justify mb-2">I wish i was a little bit taller, wish i was a
-                                baller, wish i had a girl… also.</p>
-                            <ul class="list-unstyled nav justify-content-center">
+                    @livewire('avatarchange')
 
-                                    <li class="nav-item" >
-                                        <p class="card-text" style="margin-left: -20px"> <i class="fas fa-home mr-2"></i> Live in <a href="#"
-                                            class="text-decoration-none">{{auth()->user()->address  }}</a></p>
-                                    </li>
-                                    <li class="nav-item">
-                                    <p class="card-text"> <i class="fas fa-calendar-week mr-2"></i> born <a href="#"
-                                        class="text-decoration-none">{{auth()->user()->birthday  }}</a></p>
-                                    </li>
-                                    <li class="nav-item">
-                                       change avatar
-                                        </li>
-                            </ul>
-                        </div>
-                    </div>
                     <div class="card shadow-sm card-left3 mb-4">
                         <div class="card-body">
                             <h5 class="card-title">Photos<small class="ml-2"><a href="#">.Edit </a></small>
