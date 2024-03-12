@@ -90,11 +90,8 @@
                         </a>
                         <hr class="my-3">
 
-
-
                         <a href="#" class="text-decoration-none">
                             <li class="media hover-media">
-
                                 <img src="{{ asset('assets/img/avatar-fat.jpg') }}" alt="img" width="60px" height="60px"
                                     class="rounded-circle mr-3">
 
@@ -194,7 +191,7 @@
                         <img src="{{ asset('assets/img/photo-1455448972184-de647495d428.jpg') }}" alt=""
                             class="card-img-top img-fluid">
                         <div class="card-body text-center ">
-                            <img src="{{ asset('assets/img/avatar-dhg.png') }}" alt="img" width="120px" height="120px"
+                            <img src="{{asset('storage/images/'.auth()->user()->avatar)}}" alt="img" width="120px" height="120px"
                                 class="rounded-circle mt-n5">
                             <h5 class="card-title">{{ auth()->user()->name }}</h5>
                             <p class="card-text text-justify mb-2">I wish i was a little bit taller, wish i was a
@@ -209,6 +206,9 @@
                                     <p class="card-text"> <i class="fas fa-calendar-week mr-2"></i> born <a href="#"
                                         class="text-decoration-none">{{auth()->user()->birthday  }}</a></p>
                                     </li>
+                                    <li class="nav-item">
+                                       change avatar
+                                        </li>
                             </ul>
                         </div>
                     </div>
