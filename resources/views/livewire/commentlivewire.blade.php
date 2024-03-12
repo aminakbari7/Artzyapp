@@ -5,7 +5,9 @@
             class="rounded-circle mr-3">
         <div class="media-body">
             <h5>{{$postowner->name  }}</h5>
-            <p class="text-justify">{{ $post->body }}</p>
+            <p class="text-justify">
+                {!! nl2br(e( $post->body )) !!}
+            </p>
             @if($post->image!=0)
             <img src="{{asset('storage/images/'.$post->image)}}" alt=""
                 class="img-fluid shadow-sm img-thumbnail">
@@ -30,13 +32,16 @@
     @if($user->id==$comment->user_id)
     <hr>
          <div class="media mb-3" style="margin-left: -10px">
-            <img src="{{asset('storage/images/'.auth()->user()->avatar)}}" alt="img" width="45px" height="45px" class="rounded-circle mr-2">
+            <img src="{{asset('storage/images/'.$user->avatar)}}" alt="img" width="45px" height="45px" class="rounded-circle mr-2">
 
             <div class="media-body">
               <small algin="right"  class="text-muted">{{ \Carbon\Carbon::parse($comment->created_at)->format('d/m/Y H:i:s')}}</small>
 
                 <p class="card-text text-justify">{{ $user->name }}:</p>
-                <p class="card-text text-justify">{{ $comment->body }}</p>
+                <p class="card-text text-justify">
+                    {!! nl2br(e($comment->body)) !!}
+
+                </p>
                 @if(auth()->user()->id==$comment->user_id)
                 <a wire:click="deletecomment({{ $comment->id }})" class="active">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
