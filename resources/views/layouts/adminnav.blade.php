@@ -8,8 +8,8 @@
     <div class="collapse navbar-collapse" id="responsive">
         <ul class="navbar-nav mr-auto text-capitalize">
             <li class="nav-item"><a href="{{ route('showusers') }}" class="nav-link">users</a></li>
-            <li class="nav-item"><a href="" class="nav-link">posts</a></li>
-            <li class="nav-item"><a href="" class="nav-link">comments</a></li>
+            <li class="nav-item"><a href="{{ route('showposts') }}" class="nav-link">posts</a></li>
+            <li class="nav-item"><a href="{{ route('showcomments') }}" class="nav-link">comments</a></li>
 
             <li class="nav-item"><a href="{{route('profile.edit')}}" class="nav-link">profile</a></li>
         </ul>
