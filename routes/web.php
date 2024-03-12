@@ -5,6 +5,7 @@ use App\Http\Controllers\postController;
 use App\Livewire\Commentlivewire;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Livewire\Avatarchange;
 use App\Livewire\Dashboardlivewire;
 
 
@@ -31,6 +32,7 @@ Route::middleware('auth')->group(function () {
     Route::get('dashboardlivewire',Dashboardlivewire::class );
     Route::get('/showpost/{post}',[postController::class,'show'] )->name('showpost');
     Route::get('commentlivewire',Commentlivewire::class );
+    Route::get('avatarchange',Avatarchange::class );
 });
 
 require __DIR__.'/auth.php';
