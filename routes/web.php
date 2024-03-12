@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\adminController;
+use App\Http\Controllers\dashboardController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\postController;
 use App\Livewire\Commentlivewire;
@@ -24,7 +25,10 @@ use App\Livewire\Dashboardlivewire;
 Route::get('/', [HomeController::class,'index'])->name('welcome');
 
 
-Route::get('/dashboard', function () {return view('dashboard');})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard', [dashboardController::class,'dashboard'])->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/userdash',function () {return view('userdash');} )->middleware(['auth', 'verified'])->name('userdash');
+
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
