@@ -4,6 +4,7 @@ use App\Http\Controllers\adminController;
 use App\Http\Controllers\dashboardController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\postController;
+use App\Livewire\Admin\Users;
 use App\Livewire\Commentlivewire;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
@@ -44,6 +45,7 @@ Route::middleware(['auth','isadmin', 'verified'])->group(function () {
 
     Route::get('/admin.index', function () {return view('admin/index');})->name('admin.index');
     Route::get('/showusers', [adminController::class,'showusers'])->name('showusers');
+    Route::get('users',Users::class );
 });
 
 
