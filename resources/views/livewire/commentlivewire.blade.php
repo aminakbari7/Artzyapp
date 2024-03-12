@@ -6,9 +6,10 @@
         <div class="media-body">
             <h5>{{$postowner->name  }}</h5>
             <p class="text-justify">{{ $post->body }}</p>
-            <a href="{{asset('storage/images/'.$post->image)}}" data-lightbox="id"><img
-                    src="{{asset('storage/images/'.$post->image)}}" alt=""
-                    class="img-fluid shadow-sm img-thumbnail"> </a>
+            @if($post->image!=0)
+            <img src="{{asset('storage/images/'.$post->image)}}" alt=""
+                class="img-fluid shadow-sm img-thumbnail">
+                @endif
         </div>
         <small class="text-muted">{{ \Carbon\Carbon::parse($post->created_at)->format('d/m/Y H:i:s')}}</small>
         @if(auth()->user()->id==$post->user_id)
@@ -23,7 +24,7 @@
 
     </div>
     @if($comments->count()>0)
-    <hr>
+    <hr>comments
     @foreach ($comments as $comment )
     @foreach ($users as $user )
     @if($user->id==$comment->user_id)
