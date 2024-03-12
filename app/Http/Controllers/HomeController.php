@@ -13,6 +13,8 @@ class HomeController extends Controller
     {
        if(auth()->check())
        {
+        if(auth()->user()->role=="admin")
+            return view("admin.index");
         return view("dashboard");
        }
        else
