@@ -1,7 +1,7 @@
 <div>
     @if($post->active!=0)
     <div class="media">
-        <img src="{{asset('storage/images/'.$post->image)}}" alt="img" width="55px" height="55px"
+        <img src="{{asset('storage/images/'.$postowner->avatar)}}" alt="img" width="55px" height="55px"
             class="rounded-circle mr-3">
         <div class="media-body">
             <h5>{{$postowner->name  }}</h5>
@@ -30,7 +30,7 @@
     @if($user->id==$comment->user_id)
     <hr>
          <div class="media mb-3" style="margin-left: -10px">
-            <img src="{{ asset('assets/img/avatar-dhg.png')}}" alt="img" width="45px" height="45px" class="rounded-circle mr-2">
+            <img src="{{asset('storage/images/'.auth()->user()->avatar)}}" alt="img" width="45px" height="45px" class="rounded-circle mr-2">
 
             <div class="media-body">
               <small algin="right"  class="text-muted">{{ \Carbon\Carbon::parse($comment->created_at)->format('d/m/Y H:i:s')}}</small>
