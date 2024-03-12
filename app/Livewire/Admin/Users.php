@@ -8,9 +8,6 @@ class Users extends Component
 {
     public $users;
 
-
-
-
     public function mount()
     {
         $this->users = User::all();
