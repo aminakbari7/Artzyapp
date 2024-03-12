@@ -14,14 +14,9 @@
     <!------------------LIght BOx for Gallery-------------->
     <title>Application-1</title>
 </head>
-
 <body>
     <!-------------------------------NAvigation Starts------------------>
     @include('layouts.adminnav')
-
-
-
-
     <div class="bg-light rounded h-100 p-4">
         <h6 class="mb-4">user list</h6>
         <div class="table-responsive">
@@ -53,12 +48,6 @@
             </table>
         </div>
     </div>
-
-
-
-
-
-
         <!------------------------Light BOx OPtions------------->
         <script>
             lightbox.option({
