@@ -46,6 +46,7 @@ class RegisteredUserController extends Controller
             'phone'=>$request->phone ,
             'address'=>$request->address,
             'birthday'=>$request->birthday,
+            'avatar'=>'avatar.png',
         ]);
 
         event(new Registered($user));
