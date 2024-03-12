@@ -4,10 +4,12 @@ use App\Http\Controllers\adminController;
 use App\Http\Controllers\dashboardController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\postController;
+use App\Livewire\Admin\Comments;
 use App\Livewire\Admin\Users;
 use App\Livewire\Commentlivewire;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Livewire\Admin\Posts;
 use App\Livewire\Avatarchange;
 use App\Livewire\Dashboardlivewire;
 
@@ -44,8 +46,12 @@ Route::middleware('auth')->group(function () {
 Route::middleware(['auth','isadmin', 'verified'])->group(function () {
 
     Route::get('/admin.index', function () {return view('admin/index');})->name('admin.index');
-    Route::get('/showusers', [adminController::class,'showusers'])->name('showusers');
+    Route::get('/showusers',function () {return view('admin/showusers');})->name('showusers');
+    Route::get('/showposts',function () {return view('admin/showposts');})->name('showposts');
+    Route::get('/showcomments',function () {return view('admin/showcomments');})->name('showcomments');
     Route::get('users',Users::class );
+    Route::get('posts',Posts::class );
+    Route::get('comments',Comments::class );
 });
 
 
