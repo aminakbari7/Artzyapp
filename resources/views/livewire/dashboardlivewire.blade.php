@@ -22,14 +22,15 @@
                 class="rounded-circle mr-3">
             <div class="media-body">
                 <h5>{{auth()->user()->name  }}</h5>
-                <p class="card-text text-justify">{{ $post->body }}</p></a>
-                <div class="row no-gutters mb-3">
-                    <a href="" data-lightbox="id"><img
-                        src="{{asset('storage/images/'.$post->image)}}" alt=""
-                        class="img-fluid shadow-sm img-thumbnail">
-                    </div>
                 <a href="{{URL('showpost',$post)}}">
-                      show more</a>
+                <p class="card-text text-justify">{{ $post->body }}</p>
+                <div class="row no-gutters mb-3">
+                    @if($post->image!=0)
+                    <img src="{{asset('storage/images/'.$post->image)}}" alt=""
+                        class="img-fluid shadow-sm img-thumbnail">
+                        @endif
+                </div>
+                      </a>
             </div>
             <small>5min</small>
         </div>
