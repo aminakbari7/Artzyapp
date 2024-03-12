@@ -13,6 +13,12 @@ class Commentlivewire extends Component
     public $users;
     public $comments;
     public $newbody="";
+
+    public function deletepost()
+    {
+        $this->post->active='0';
+        $this->post->save();
+    }
     public function deletecomment($id)
     {
     $com=comment::find($id);
