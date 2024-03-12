@@ -20,9 +20,7 @@
         <div class="media">
             <img src="{{ asset('assets/img/avatar-dhg.png') }}" alt="img" width="55px" height="55px"
                 class="rounded-circle mr-3">
-
             <div class="media-body">
-
                 <h5>{{auth()->user()->name  }}</h5>
                 <p class="card-text text-justify">{{ $post->body }}</p></a>
                 <div class="row no-gutters mb-3">
@@ -31,9 +29,7 @@
                         class="img-fluid shadow-sm img-thumbnail">
                     </div>
                 <a href="{{URL('showpost',$post)}}">
-                show post</a>
-
-
+                      show more</a>
             </div>
             <small>5min</small>
         </div>
