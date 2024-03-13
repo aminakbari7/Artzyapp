@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="lightbox.min.css">
     <script type="text/javascript" src="{{ asset('assets/js/lightbox-plus-jquery.min.js') }}"></script>
     <!------------------LIght BOx for Gallery-------------->
-    <title>Application-1</title>
+    <title>dashboard</title>
 </head>
 
 <body>
