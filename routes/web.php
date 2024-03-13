@@ -28,6 +28,9 @@ use App\Livewire\Dashboardlivewire;
 Route::get('/', [HomeController::class,'index'])->name('welcome');
 
 
+
+
+
 Route::get('/dashboard', [dashboardController::class,'dashboard'])->middleware(['auth', 'verified'])->name('dashboard');
 Route::get('/userdash',function () {return view('userdash');} )->middleware(['auth', 'verified'])->name('userdash');
 
@@ -43,6 +46,9 @@ Route::middleware('auth')->group(function () {
     Route::get('avatarchange',Avatarchange::class );
 });
 
+
+
+///------- admin
 Route::middleware(['auth','isadmin', 'verified'])->group(function () {
 
     Route::get('/admin.index', function () {return view('admin/index');})->name('admin.index');
