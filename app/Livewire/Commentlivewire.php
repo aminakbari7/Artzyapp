@@ -13,7 +13,6 @@ class Commentlivewire extends Component
     public $users;
     public $comments;
     public $newbody="";
-
     public function deletepost()
     {
         $this->post->active='0';
@@ -25,7 +24,6 @@ class Commentlivewire extends Component
     $com->active=0;
     $com->save();
     $this->comments = Comment::where('post_id',$this->post->id)->where('active','1')->orderByDesc('created_at')->get();
-
     $this->mount($this->post);
     }
     public function addcomment()
@@ -37,7 +35,6 @@ class Commentlivewire extends Component
         'active'=>1,
         ]);
         $this->newbody='';
-
      $this->mount($this->post);
     }
     public function mount( $post)
