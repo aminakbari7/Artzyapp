@@ -1,4 +1,4 @@
-<div>
+<div wire:poll>
     @if($post->active!=0)
     <div class="media">
         <img src="{{asset('storage/images/'.$postowner->avatar)}}" alt="img" width="55px" height="55px"
