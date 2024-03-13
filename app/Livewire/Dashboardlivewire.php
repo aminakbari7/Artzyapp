@@ -7,6 +7,7 @@ use Livewire\WithPagination;
 use App\Models\User;
 use App\Models\post;
 use Livewire\WithFileUploads;
+use Livewire\Attributes\On;
 use Illuminate\Support\Facades\Session;
 use Storage;
 class Dashboardlivewire extends Component
@@ -43,6 +44,11 @@ class Dashboardlivewire extends Component
         $this->image="";
         $this->render();
 
+    }
+    #[On('avatar-updated')]
+    public function refreshPost()
+    {
+        $this->posts=post::select()->where('user_id', auth()->user()->id)->where('active','1')->orderByDesc('created_at')->get();
     }
     public function render()
     {
