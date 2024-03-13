@@ -14,7 +14,7 @@ class Avatarchange extends Component
     use WithFileUploads;
     public $user;
     public $keyupdate=-1;
-    public $newimage='';
+    public $newimage;
     public function update()
     {
         $this->keyupdate=1;
@@ -26,6 +26,7 @@ class Avatarchange extends Component
         $this->user->avatar = $namei;
         $this->user->save();
         $this->keyupdate=-1;
+        $this->dispatch('avatar-updated');
         $this->mount();
     }
     public function mount()
