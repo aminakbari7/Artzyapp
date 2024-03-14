@@ -6,8 +6,12 @@ use Livewire\Component;
 use App\Models\User;
 use App\Models\comment;
 use GuzzleHttp\Promise\Create;
+use Livewire\WithPagination;
+use Illuminate\Support\Facades\DB;
+
 class Commentlivewire extends Component
 {
+    use WithPagination;
     public $post;
     public $postowner;
     public $users;
@@ -43,10 +47,11 @@ class Commentlivewire extends Component
       $this->postowner=user::find($this->post->user_id);
       $this->comments = Comment::where('post_id',$post->id)->where('active','1')->orderByDesc('created_at')->get();
       $this->users=user::find($this->comments->pluck('user_id')->toArray());
-
     }
     public function render()
     {
+
+
         return view('livewire.commentlivewire');
     }
 }
