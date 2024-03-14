@@ -30,6 +30,8 @@
                 @endforeach
             </tbody>
         </table>
-
+        <div class="d-felx justify-content-center">
+            {{ $posts->links('livewire.admin.pagination') }}
+          </div>
     </div>
 </div>
