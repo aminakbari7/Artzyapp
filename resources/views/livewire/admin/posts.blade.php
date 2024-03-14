@@ -2,6 +2,7 @@
     <form class=" flex">
         <input class="form-control border-0" type="search" placeholder="Search">
     </form>
+
     <h6 class="mb-4">posts list</h6>
     <div class="table-responsive">
         <table class="table">
