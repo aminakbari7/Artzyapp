@@ -28,5 +28,8 @@
                 @endforeach
             </tbody>
         </table>
+        <div class="d-felx justify-content-center">
+            {{ $comments->links('livewire.admin.pagination') }}
+          </div>
     </div>
 </div>
