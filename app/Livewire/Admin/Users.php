@@ -3,18 +3,17 @@
 namespace App\Livewire\Admin;
 use App\Models\User;
 use Livewire\Component;
-
+use Livewire\WithPagination;
+use Illuminate\Support\Facades\DB;
 class Users extends Component
 {
-    public $users;
+    use WithPagination;
 
-    public function mount()
-    {
-        $this->users = User::all();
 
-    }
     public function render()
     {
-        return view('livewire.admin.users');
+        $users = User::select()->orderByDesc('created_at')->paginate(5);
+
+        return view('livewire.admin.users',['users'=> $users]);
     }
 }
